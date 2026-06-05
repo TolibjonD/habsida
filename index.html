@@ -3,97 +3,381 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pseudo-elementlar</title>
-    <style>
-      .sarlavha {
-        font-size: 24px;
-        color: #333;
-      }
-      /* .sarlavha::before pseudo-elementiga: */
-      /* content: "\2605" */
-      /* color: #f39c12 */
-
-      /* .sarlavha::after pseudo-elementiga: */
-      /* content: "\2605" */
-      /* color: #f39c12 */
-
-      /* .sarlavha pseudo-elementlari kodini ushbu kommentdan keyin yozing */
-      .sarlavha::before {
-        content: "\2605";
-        color: #f39c12;
-      }
-
-      .sarlavha::after {
-        content: "\2605";
-        color: #f39c12;
-      }
-
-      .eslatma {
-        padding: 10px;
-        background-color: #f9f9f9;
-      }
-      /* .eslatma::before pseudo-elementiga: */
-      /* content: "\1F4CC" */
-      /* font-weight: bold */
-
-      /* .eslatma pseudo-elementi kodini ushbu kommentdan keyin yozing */
-      .eslatma::before {
-        content: "\1F4CC";
-        font-weight: bold;
-      }
-
-      .paragraf {
-        line-height: 1.6;
-      }
-      /* .paragraf::first-line pseudo-elementiga: */
-      /* font-weight: bold */
-      /* color: #2c3e50 */
-
-      /* .paragraf pseudo-elementi kodini ushbu kommentdan keyin yozing */
-      .paragraf::first-line {
-        font-weight: bold;
-        color: #2c3e50;
-      }
-    </style>
+    <title>Flexbox & CSS Grid — Interactive Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1 class="sarlavha">Pseudo-elementlar darsi</h1>
-    <p class="eslatma">Bu muhim eslatma matni.</p>
-    <p class="paragraf">
-      Bu paragrafning birinchi qatori qalin va boshqa rangda bo'lishi kerak.
-      Qolgan qatorlar oddiy ko'rinishda qoladi. Lorem ipsum, dolor sit amet
-      consectetur adipisicing elit. Est, debitis accusamus eligendi accusantium
-      quis sed aliquid nisi nemo et sit. Consequatur voluptatem dolorem
-      aspernatur a, ipsum fuga delectus minus mollitia quae non, libero dicta
-      officia maiores debitis excepturi aperiam, nesciunt atque laboriosam?
-      Mollitia molestiae doloremque, ea omnis quis tenetur nostrum eos. Aliquid
-      expedita aspernatur eos iusto odio fuga, iure itaque minima totam, ab
-      sequi tenetur optio error hic perspiciatis earum sapiente quasi
-      voluptatum! Tempore at perferendis, laborum suscipit in molestias magnam
-      quod cum ab. Molestias alias ea voluptatem maiores illum, dolor
-      temporibus, dignissimos ipsa natus deleniti nostrum officiis
-      necessitatibus labore quos quae, tempora aut enim esse sint autem! Odio
-      adipisci, eveniet ipsam aperiam autem recusandae ex iusto consectetur
-      porro eaque? Perferendis distinctio ab temporibus necessitatibus hic,
-      tempora impedit voluptatum non deleniti facere? Iste dolorem nisi
-      doloremque quas at tempore. Excepturi suscipit, aperiam veniam
-      reprehenderit unde necessitatibus harum ipsa reiciendis cupiditate ab
-      molestiae quas cum ratione error perspiciatis. Magnam rerum nostrum
-      aspernatur ab eius ad modi tempore maiores quasi incidunt, dolor itaque
-      doloremque! Porro alias, quaerat recusandae consequatur neque voluptas
-      labore dolore, beatae aspernatur, minima odit totam. Sequi odio amet,
-      consequatur, aut commodi nam ullam minus blanditiis molestias ab aliquid
-      dolorum quas labore sint qui recusandae maiores voluptatem ipsum deserunt.
-      Accusantium quasi facilis quas voluptatibus consectetur! Ut consequatur
-      mollitia labore illum, ab minus? Quaerat perspiciatis laudantium molestiae
-      enim debitis voluptatibus quo eaque laboriosam autem ducimus temporibus
-      incidunt rem dolor cum recusandae vel pariatur assumenda, nisi fugiat
-      molestias eum nemo quis unde voluptates. Minus rem earum laborum
-      reiciendis consequatur deserunt incidunt doloremque omnis ipsum maxime
-      sit, quas temporibus cumque pariatur numquam, aliquid, ducimus hic. Fugit
-      amet modi quos velit architecto quisquam similique, perspiciatis
-      quibusdam, consectetur, labore animi iusto quidem officiis possimus eius
-      unde obcaecati laboriosam ab debitis saepe perferendis quo dolor delectus!
-    </p>
+    <header class="hero">
+      <div class="hero__badge">CSS Layout</div>
+      <h1 class="hero__title">
+        <span data-text="flex">flex</span>
+        <span class="hero__divider">&</span>
+        <span data-text="grid">grid</span>
+      </h1>
+      <p class="hero__sub">
+        Interaktiv qo'llanma — real vaqtda o'zgartiring, kod avtomatik
+        yangilanadi
+      </p>
+    </header>
+
+    <main class="layout">
+      <!-- ═══ FLEX SECTION ═══ -->
+      <section class="section section--flex" id="flex-section">
+        <div class="section__header">
+          <span class="section__tag section__tag--flex">01</span>
+          <h2 class="section__title">Flexbox</h2>
+          <p class="section__desc">
+            Bir o'qda kuchli — qator yoki ustun bo'yicha tartiblashtiradi
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="controls" id="flex-controls">
+            <div class="control-group">
+              <label class="control-group__label">flex-direction</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--flex active"
+                  data-prop="direction"
+                  data-val="row"
+                >
+                  row
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="direction"
+                  data-val="row-reverse"
+                >
+                  row-reverse
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="direction"
+                  data-val="column"
+                >
+                  column
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="direction"
+                  data-val="column-reverse"
+                >
+                  column-reverse
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label">justify-content</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--flex active"
+                  data-prop="justify"
+                  data-val="flex-start"
+                >
+                  flex-start
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="justify"
+                  data-val="flex-end"
+                >
+                  flex-end
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="justify"
+                  data-val="center"
+                >
+                  center
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="justify"
+                  data-val="space-between"
+                >
+                  space-between
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="justify"
+                  data-val="space-around"
+                >
+                  space-around
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="justify"
+                  data-val="space-evenly"
+                >
+                  space-evenly
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label">align-items</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--flex active"
+                  data-prop="align"
+                  data-val="stretch"
+                >
+                  stretch
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="align"
+                  data-val="flex-start"
+                >
+                  flex-start
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="align"
+                  data-val="flex-end"
+                >
+                  flex-end
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="align"
+                  data-val="center"
+                >
+                  center
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="align"
+                  data-val="baseline"
+                >
+                  baseline
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label">flex-wrap</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--flex active"
+                  data-prop="wrap"
+                  data-val="nowrap"
+                >
+                  nowrap
+                </button>
+                <button class="btn btn--flex" data-prop="wrap" data-val="wrap">
+                  wrap
+                </button>
+                <button
+                  class="btn btn--flex"
+                  data-prop="wrap"
+                  data-val="wrap-reverse"
+                >
+                  wrap-reverse
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-wrapper">
+            <div class="stage stage--flex" id="flex-stage">
+              <div class="box box--flex" style="--i: 0">A</div>
+              <div class="box box--flex" style="--i: 1; height: 90px">B</div>
+              <div class="box box--flex" style="--i: 2">C</div>
+              <div class="box box--flex" style="--i: 3; height: 75px">D</div>
+              <div class="box box--flex" style="--i: 4">E</div>
+            </div>
+            <pre class="code-output" id="flex-code"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ GRID SECTION ═══ -->
+      <section class="section section--grid" id="grid-section">
+        <div class="section__header">
+          <span class="section__tag section__tag--grid">02</span>
+          <h2 class="section__title">CSS Grid</h2>
+          <p class="section__desc">
+            Ikki o'qda kuchli — qator va ustunni bir vaqtda boshqaradi
+          </p>
+        </div>
+
+        <div class="panel">
+          <div class="controls" id="grid-controls">
+            <div class="control-group">
+              <label class="control-group__label">grid-template-columns</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--grid active"
+                  data-prop="cols"
+                  data-val="repeat(3, 1fr)"
+                >
+                  repeat(3, 1fr)
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="cols"
+                  data-val="repeat(2, 1fr)"
+                >
+                  repeat(2, 1fr)
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="cols"
+                  data-val="repeat(4, 1fr)"
+                >
+                  repeat(4, 1fr)
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="cols"
+                  data-val="1fr 2fr 1fr"
+                >
+                  1fr 2fr 1fr
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="cols"
+                  data-val="repeat(auto-fit, minmax(80px, 1fr))"
+                >
+                  auto-fit
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label">gap</label>
+              <div class="control-group__btns">
+                <button class="btn btn--grid" data-prop="gap" data-val="4px">
+                  4px
+                </button>
+                <button
+                  class="btn btn--grid active"
+                  data-prop="gap"
+                  data-val="8px"
+                >
+                  8px
+                </button>
+                <button class="btn btn--grid" data-prop="gap" data-val="16px">
+                  16px
+                </button>
+                <button class="btn btn--grid" data-prop="gap" data-val="24px">
+                  24px
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label"
+                >grid-column span (1-element)</label
+              >
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--grid active"
+                  data-prop="span"
+                  data-val="1"
+                >
+                  span 1
+                </button>
+                <button class="btn btn--grid" data-prop="span" data-val="2">
+                  span 2
+                </button>
+                <button class="btn btn--grid" data-prop="span" data-val="3">
+                  span 3
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-group__label">align-items</label>
+              <div class="control-group__btns">
+                <button
+                  class="btn btn--grid active"
+                  data-prop="galign"
+                  data-val="stretch"
+                >
+                  stretch
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="galign"
+                  data-val="start"
+                >
+                  start
+                </button>
+                <button
+                  class="btn btn--grid"
+                  data-prop="galign"
+                  data-val="center"
+                >
+                  center
+                </button>
+                <button class="btn btn--grid" data-prop="galign" data-val="end">
+                  end
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-wrapper">
+            <div class="stage stage--grid" id="grid-stage">
+              <div class="box box--grid" style="--i: 0">1</div>
+              <div class="box box--grid" style="--i: 1">2</div>
+              <div class="box box--grid" style="--i: 2">3</div>
+              <div class="box box--grid" style="--i: 3">4</div>
+              <div class="box box--grid" style="--i: 4">5</div>
+              <div class="box box--grid" style="--i: 5">6</div>
+            </div>
+            <pre class="code-output" id="grid-code"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ CHEATSHEET ═══ -->
+      <section class="cheatsheet">
+        <h2 class="cheatsheet__title">Qachon qaysinisini ishlatish kerak?</h2>
+        <div class="cheatsheet__grid">
+          <div class="cheatsheet__card cheatsheet__card--flex">
+            <div class="cheatsheet__card-label">Flexbox</div>
+            <ul>
+              <li>Navigatsiya menyusi</li>
+              <li>Tugmalar guruhi</li>
+              <li>Karta ichidagi layout</li>
+              <li>Bitta qator / ustun</li>
+              <li>Elementlarni markazlash</li>
+            </ul>
+          </div>
+          <div class="cheatsheet__card cheatsheet__card--grid">
+            <div class="cheatsheet__card-label">CSS Grid</div>
+            <ul>
+              <li>Sahifa asosiy tuzilmasi</li>
+              <li>Dashboard layouti</li>
+              <li>Rasm galereya</li>
+              <li>Murakkab 2D tartib</li>
+              <li>Responsive setzka</li>
+            </ul>
+          </div>
+          <div class="cheatsheet__card cheatsheet__card--both">
+            <div class="cheatsheet__card-label">Birgalikda</div>
+            <ul>
+              <li>Grid — sahifa skeleti</li>
+              <li>Flex — katak ichidagi content</li>
+              <li>Ikkalasi bir-birini to'ldiradi</li>
+              <li>Nested layout mumkin</li>
+              <li>Kuchli kombinatsiya</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
