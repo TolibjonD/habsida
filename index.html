@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-elementlar</title>
+    <style>
+      .sarlavha {
+        font-size: 24px;
+        color: #333;
+      }
+      /* .sarlavha::before pseudo-elementiga: */
+      /* content: "\2605" */
+      /* color: #f39c12 */
+
+      /* .sarlavha::after pseudo-elementiga: */
+      /* content: "\2605" */
+      /* color: #f39c12 */
+
+      /* .sarlavha pseudo-elementlari kodini ushbu kommentdan keyin yozing */
+      .sarlavha::before {
+        content: "\2605";
+        color: #f39c12;
+      }
+
+      .sarlavha::after {
+        content: "\2605";
+        color: #f39c12;
+      }
+
+      .eslatma {
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+      /* .eslatma::before pseudo-elementiga: */
+      /* content: "\1F4CC" */
+      /* font-weight: bold */
+
+      /* .eslatma pseudo-elementi kodini ushbu kommentdan keyin yozing */
+      .eslatma::before {
+        content: "\1F4CC";
+        font-weight: bold;
+      }
+
+      .paragraf {
+        line-height: 1.6;
+      }
+      /* .paragraf::first-line pseudo-elementiga: */
+      /* font-weight: bold */
+      /* color: #2c3e50 */
+
+      /* .paragraf pseudo-elementi kodini ushbu kommentdan keyin yozing */
+      .paragraf::first-line {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="sarlavha">Pseudo-elementlar darsi</h1>
+    <p class="eslatma">Bu muhim eslatma matni.</p>
+    <p class="paragraf">
+      Bu paragrafning birinchi qatori qalin va boshqa rangda bo'lishi kerak.
+      Qolgan qatorlar oddiy ko'rinishda qoladi. Lorem ipsum, dolor sit amet
+      consectetur adipisicing elit. Est, debitis accusamus eligendi accusantium
+      quis sed aliquid nisi nemo et sit. Consequatur voluptatem dolorem
+      aspernatur a, ipsum fuga delectus minus mollitia quae non, libero dicta
+      officia maiores debitis excepturi aperiam, nesciunt atque laboriosam?
+      Mollitia molestiae doloremque, ea omnis quis tenetur nostrum eos. Aliquid
+      expedita aspernatur eos iusto odio fuga, iure itaque minima totam, ab
+      sequi tenetur optio error hic perspiciatis earum sapiente quasi
+      voluptatum! Tempore at perferendis, laborum suscipit in molestias magnam
+      quod cum ab. Molestias alias ea voluptatem maiores illum, dolor
+      temporibus, dignissimos ipsa natus deleniti nostrum officiis
+      necessitatibus labore quos quae, tempora aut enim esse sint autem! Odio
+      adipisci, eveniet ipsam aperiam autem recusandae ex iusto consectetur
+      porro eaque? Perferendis distinctio ab temporibus necessitatibus hic,
+      tempora impedit voluptatum non deleniti facere? Iste dolorem nisi
+      doloremque quas at tempore. Excepturi suscipit, aperiam veniam
+      reprehenderit unde necessitatibus harum ipsa reiciendis cupiditate ab
+      molestiae quas cum ratione error perspiciatis. Magnam rerum nostrum
+      aspernatur ab eius ad modi tempore maiores quasi incidunt, dolor itaque
+      doloremque! Porro alias, quaerat recusandae consequatur neque voluptas
+      labore dolore, beatae aspernatur, minima odit totam. Sequi odio amet,
+      consequatur, aut commodi nam ullam minus blanditiis molestias ab aliquid
+      dolorum quas labore sint qui recusandae maiores voluptatem ipsum deserunt.
+      Accusantium quasi facilis quas voluptatibus consectetur! Ut consequatur
+      mollitia labore illum, ab minus? Quaerat perspiciatis laudantium molestiae
+      enim debitis voluptatibus quo eaque laboriosam autem ducimus temporibus
+      incidunt rem dolor cum recusandae vel pariatur assumenda, nisi fugiat
+      molestias eum nemo quis unde voluptates. Minus rem earum laborum
+      reiciendis consequatur deserunt incidunt doloremque omnis ipsum maxime
+      sit, quas temporibus cumque pariatur numquam, aliquid, ducimus hic. Fugit
+      amet modi quos velit architecto quisquam similique, perspiciatis
+      quibusdam, consectetur, labore animi iusto quidem officiis possimus eius
+      unde obcaecati laboriosam ab debitis saepe perferendis quo dolor delectus!
+    </p>
+  </body>
+</html>
