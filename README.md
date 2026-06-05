@@ -1,2 +1,2 @@
-# habsida
-All lesson projects from habsida school
+# FLEX & GRID
+Flex va Grid uchun interaktive qo'llanma
