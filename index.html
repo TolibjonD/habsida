@@ -3,380 +3,1918 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flexbox & CSS Grid — Interactive Demo</title>
+    <title>Flexbox & CSS Grid — Ultra Pro Interactive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero__badge">CSS Layout</div>
-      <h1 class="hero__title">
-        <span data-text="flex">flex</span>
-        <span class="hero__divider">&</span>
-        <span data-text="grid">grid</span>
-      </h1>
-      <p class="hero__sub">
-        Interaktiv qo'llanma — real vaqtda o'zgartiring, kod avtomatik
-        yangilanadi
-      </p>
-    </header>
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar__logo">CSS<br />Layout</div>
+      <ul class="sidebar__list">
+        <li class="sidebar__chapter">I — Flexbox</li>
+        <li>
+          <a href="#s01" class="sidebar__link" data-sec="flex"
+            >01 — display: flex</a
+          >
+        </li>
+        <li>
+          <a href="#s02" class="sidebar__link" data-sec="flex"
+            >02 — flex-direction</a
+          >
+        </li>
+        <li>
+          <a href="#s03" class="sidebar__link" data-sec="flex"
+            >03 — justify-content</a
+          >
+        </li>
+        <li>
+          <a href="#s04" class="sidebar__link" data-sec="flex"
+            >04 — align-items</a
+          >
+        </li>
+        <li>
+          <a href="#s05" class="sidebar__link" data-sec="flex"
+            >05 — flex-wrap</a
+          >
+        </li>
+        <li>
+          <a href="#s06" class="sidebar__link" data-sec="flex">06 — gap</a>
+        </li>
+        <li>
+          <a href="#s07" class="sidebar__link" data-sec="flex"
+            >07 — flex-grow</a
+          >
+        </li>
+        <li>
+          <a href="#s08" class="sidebar__link" data-sec="flex"
+            >08 — flex-shrink</a
+          >
+        </li>
+        <li>
+          <a href="#s09" class="sidebar__link" data-sec="flex"
+            >09 — flex-basis</a
+          >
+        </li>
+        <li>
+          <a href="#s10" class="sidebar__link" data-sec="flex"
+            >10 — flex shorthand</a
+          >
+        </li>
+        <li>
+          <a href="#s11" class="sidebar__link" data-sec="flex"
+            >11 — align-self</a
+          >
+        </li>
+        <li>
+          <a href="#s12" class="sidebar__link" data-sec="flex">12 — order</a>
+        </li>
+        <li>
+          <a href="#s13" class="sidebar__link" data-sec="flex"
+            >13 — align-content</a
+          >
+        </li>
+        <li class="sidebar__divider"></li>
+        <li class="sidebar__chapter">II — CSS Grid</li>
+        <li>
+          <a href="#s14" class="sidebar__link" data-sec="grid"
+            >14 — display: grid</a
+          >
+        </li>
+        <li>
+          <a href="#s15" class="sidebar__link" data-sec="grid"
+            >15 — template-columns</a
+          >
+        </li>
+        <li>
+          <a href="#s16" class="sidebar__link" data-sec="grid"
+            >16 — template-rows</a
+          >
+        </li>
+        <li>
+          <a href="#s17" class="sidebar__link" data-sec="grid">17 — gap</a>
+        </li>
+        <li>
+          <a href="#s18" class="sidebar__link" data-sec="grid"
+            >18 — template-areas</a
+          >
+        </li>
+        <li>
+          <a href="#s19" class="sidebar__link" data-sec="grid"
+            >19 — column/row span</a
+          >
+        </li>
+        <li>
+          <a href="#s20" class="sidebar__link" data-sec="grid"
+            >20 — auto-fit + minmax</a
+          >
+        </li>
+        <li>
+          <a href="#s21" class="sidebar__link" data-sec="grid"
+            >21 — grid-auto-flow</a
+          >
+        </li>
+        <li>
+          <a href="#s22" class="sidebar__link" data-sec="grid"
+            >22 — place-items</a
+          >
+        </li>
+        <li>
+          <a href="#s23" class="sidebar__link" data-sec="grid"
+            >23 — grid lines</a
+          >
+        </li>
+        <li class="sidebar__divider"></li>
+        <li class="sidebar__chapter">III — Qiyoslash</li>
+        <li>
+          <a href="#s24" class="sidebar__link" data-sec="both"
+            >24 — Flex vs Grid</a
+          >
+        </li>
+        <li>
+          <a href="#s25" class="sidebar__link" data-sec="both"
+            >25 — Real layout</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-    <main class="layout">
-      <!-- ═══ FLEX SECTION ═══ -->
-      <section class="section section--flex" id="flex-section">
-        <div class="section__header">
-          <span class="section__tag section__tag--flex">01</span>
-          <h2 class="section__title">Flexbox</h2>
-          <p class="section__desc">
-            Bir o'qda kuchli — qator yoki ustun bo'yicha tartiblashtiradi
-          </p>
+    <!-- HAMBURGER -->
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- MAIN -->
+    <div class="main-wrap">
+      <!-- HERO -->
+      <header class="hero">
+        <div class="hero__badge">Interactive Reference · 25 mavzu</div>
+        <h1 class="hero__title">
+          <span class="c-flex">Flexbox</span>
+          <span class="c-dim">&amp;</span>
+          <span class="c-grid">CSS Grid</span>
+        </h1>
+        <p class="hero__sub">
+          Har bir xususiyatni real vaqtda o'zgartiring — kod avtomatik
+          yangilanadi
+        </p>
+        <div class="hero__pills">
+          <span class="pill pill--flex">13 Flex xususiyat</span>
+          <span class="pill pill--grid">10 Grid xususiyat</span>
+          <span class="pill pill--both">25 Interaktiv demo</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- ══════ CHAPTER I ══════ -->
+        <div class="chapter" id="chapter-flex">
+          <span class="chapter__badge chapter__badge--flex">I</span>
+          <div>
+            <h2 class="chapter__title c-flex">Flexbox</h2>
+            <p class="chapter__desc">
+              1D tartib tizimi — qator yoki ustun bo'yicha elementlarni
+              boshqaradi
+            </p>
+          </div>
         </div>
 
-        <div class="panel">
-          <div class="controls" id="flex-controls">
-            <div class="control-group">
-              <label class="control-group__label">flex-direction</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--flex active"
-                  data-prop="direction"
-                  data-val="row"
-                >
-                  row
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="direction"
-                  data-val="row-reverse"
-                >
-                  row-reverse
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="direction"
-                  data-val="column"
-                >
-                  column
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="direction"
-                  data-val="column-reverse"
-                >
-                  column-reverse
-                </button>
-              </div>
+        <!-- S01 -->
+        <section class="ds" id="s01">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">01</span>
+            <div>
+              <h3 class="ds__title">display: flex</h3>
+              <p class="ds__desc">
+                Konteynerga <code>display: flex</code> qo'yilganda uning barcha
+                to'g'ridan to'g'ri bolalari "flex item" ga aylanadi va bir
+                qatorda joylashadi.
+              </p>
             </div>
-
-            <div class="control-group">
-              <label class="control-group__label">justify-content</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--flex active"
-                  data-prop="justify"
-                  data-val="flex-start"
-                >
-                  flex-start
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="justify"
-                  data-val="flex-end"
-                >
-                  flex-end
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="justify"
-                  data-val="center"
-                >
-                  center
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="justify"
-                  data-val="space-between"
-                >
-                  space-between
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="justify"
-                  data-val="space-around"
-                >
-                  space-around
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="justify"
-                  data-val="space-evenly"
-                >
-                  space-evenly
-                </button>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s01-stage" style="display: flex; gap: 8px">
+                <div class="box bf b0">flex item</div>
+                <div class="box bf b1">flex item</div>
+                <div class="box bf b2">flex item</div>
               </div>
+              <pre class="code" id="s01-code"></pre>
             </div>
-
-            <div class="control-group">
-              <label class="control-group__label">align-items</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--flex active"
-                  data-prop="align"
-                  data-val="stretch"
-                >
-                  stretch
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="align"
-                  data-val="flex-start"
-                >
-                  flex-start
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="align"
-                  data-val="flex-end"
-                >
-                  flex-end
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="align"
-                  data-val="center"
-                >
-                  center
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="align"
-                  data-val="baseline"
-                >
-                  baseline
-                </button>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-group__label">flex-wrap</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--flex active"
-                  data-prop="wrap"
-                  data-val="nowrap"
-                >
-                  nowrap
-                </button>
-                <button class="btn btn--flex" data-prop="wrap" data-val="wrap">
-                  wrap
-                </button>
-                <button
-                  class="btn btn--flex"
-                  data-prop="wrap"
-                  data-val="wrap-reverse"
-                >
-                  wrap-reverse
-                </button>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">display</span>
+                <div class="ctrl-btns">
+                  <button
+                    class="btn btn-f active"
+                    onclick="
+                      setStyle('s01-stage', 'display', 'flex', this);
+                      renderCode('s01', { display: 'flex' });
+                    "
+                  >
+                    flex
+                  </button>
+                  <button
+                    class="btn btn-f"
+                    onclick="
+                      setStyle('s01-stage', 'display', 'block', this);
+                      renderCode('s01', { display: 'block' });
+                    "
+                  >
+                    block
+                  </button>
+                  <button
+                    class="btn btn-f"
+                    onclick="
+                      setStyle('s01-stage', 'display', 'inline-flex', this);
+                      renderCode('s01', { display: 'inline-flex' });
+                    "
+                  >
+                    inline-flex
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="stage-wrapper">
-            <div class="stage stage--flex" id="flex-stage">
-              <div class="box box--flex" style="--i: 0">A</div>
-              <div class="box box--flex" style="--i: 1; height: 90px">B</div>
-              <div class="box box--flex" style="--i: 2">C</div>
-              <div class="box box--flex" style="--i: 3; height: 75px">D</div>
-              <div class="box box--flex" style="--i: 4">E</div>
+          <div class="tips">
+            <div class="tip">
+              <strong>flex</strong> — blok darajali flex konteyner
             </div>
-            <pre class="code-output" id="flex-code"></pre>
+            <div class="tip">
+              <strong>inline-flex</strong> — inline darajali flex konteyner
+            </div>
+            <div class="tip">
+              <strong>block</strong> — oddiy blok (flex yo'q)
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ═══ GRID SECTION ═══ -->
-      <section class="section section--grid" id="grid-section">
-        <div class="section__header">
-          <span class="section__tag section__tag--grid">02</span>
-          <h2 class="section__title">CSS Grid</h2>
-          <p class="section__desc">
-            Ikki o'qda kuchli — qator va ustunni bir vaqtda boshqaradi
-          </p>
-        </div>
-
-        <div class="panel">
-          <div class="controls" id="grid-controls">
-            <div class="control-group">
-              <label class="control-group__label">grid-template-columns</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--grid active"
-                  data-prop="cols"
-                  data-val="repeat(3, 1fr)"
-                >
-                  repeat(3, 1fr)
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="cols"
-                  data-val="repeat(2, 1fr)"
-                >
-                  repeat(2, 1fr)
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="cols"
-                  data-val="repeat(4, 1fr)"
-                >
-                  repeat(4, 1fr)
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="cols"
-                  data-val="1fr 2fr 1fr"
-                >
-                  1fr 2fr 1fr
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="cols"
-                  data-val="repeat(auto-fit, minmax(80px, 1fr))"
-                >
-                  auto-fit
-                </button>
-              </div>
+        <!-- S02 -->
+        <section class="ds" id="s02">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">02</span>
+            <div>
+              <h3 class="ds__title">flex-direction</h3>
+              <p class="ds__desc">
+                Elementlar qaysi yo'nalishda joylashishini belgilaydi. Bu
+                <strong>asosiy o'q</strong> (main axis) ni ham belgilaydi.
+              </p>
             </div>
-
-            <div class="control-group">
-              <label class="control-group__label">gap</label>
-              <div class="control-group__btns">
-                <button class="btn btn--grid" data-prop="gap" data-val="4px">
-                  4px
-                </button>
-                <button
-                  class="btn btn--grid active"
-                  data-prop="gap"
-                  data-val="8px"
-                >
-                  8px
-                </button>
-                <button class="btn btn--grid" data-prop="gap" data-val="16px">
-                  16px
-                </button>
-                <button class="btn btn--grid" data-prop="gap" data-val="24px">
-                  24px
-                </button>
-              </div>
-            </div>
-
-            <div class="control-group">
-              <label class="control-group__label"
-                >grid-column span (1-element)</label
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s02-stage"
+                style="display: flex; flex-direction: row; gap: 8px"
               >
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--grid active"
-                  data-prop="span"
-                  data-val="1"
+                <div class="box bf b0">A</div>
+                <div class="box bf b1">B</div>
+                <div class="box bf b2">C</div>
+                <div class="box bf b3">D</div>
+              </div>
+              <pre class="code" id="s02-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">flex-direction</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s02-stage"
+                  data-code="s02"
+                  data-css="flexDirection"
+                  data-type="f"
                 >
-                  span 1
-                </button>
-                <button class="btn btn--grid" data-prop="span" data-val="2">
+                  <button class="btn btn-f active" data-val="row">row</button>
+                  <button class="btn btn-f" data-val="row-reverse">
+                    row-reverse
+                  </button>
+                  <button class="btn btn-f" data-val="column">column</button>
+                  <button class="btn btn-f" data-val="column-reverse">
+                    column-reverse
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <strong>row</strong> — chapdan o'ngga (default)
+            </div>
+            <div class="tip"><strong>row-reverse</strong> — o'ngdan chapga</div>
+            <div class="tip"><strong>column</strong> — yuqoridan pastga</div>
+            <div class="tip">
+              <strong>column-reverse</strong> — pastdan yuqoriga
+            </div>
+          </div>
+        </section>
+
+        <!-- S03 -->
+        <section class="ds" id="s03">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">03</span>
+            <div>
+              <h3 class="ds__title">justify-content</h3>
+              <p class="ds__desc">
+                Elementlarni <strong>asosiy o'q</strong> (main axis) bo'ylab
+                tarqatadi. Qolgan bo'sh joyni qanday taqsimlashni belgilaydi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--h"
+                id="s03-stage"
+                style="display: flex; justify-content: flex-start; gap: 8px"
+              >
+                <div class="box bf b0">A</div>
+                <div class="box bf b1">B</div>
+                <div class="box bf b2">C</div>
+              </div>
+              <pre class="code" id="s03-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">justify-content</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s03-stage"
+                  data-code="s03"
+                  data-css="justifyContent"
+                  data-type="f"
+                >
+                  <button class="btn btn-f active" data-val="flex-start">
+                    flex-start
+                  </button>
+                  <button class="btn btn-f" data-val="flex-end">
+                    flex-end
+                  </button>
+                  <button class="btn btn-f" data-val="center">center</button>
+                  <button class="btn btn-f" data-val="space-between">
+                    space-between
+                  </button>
+                  <button class="btn btn-f" data-val="space-around">
+                    space-around
+                  </button>
+                  <button class="btn btn-f" data-val="space-evenly">
+                    space-evenly
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S04 -->
+        <section class="ds" id="s04">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">04</span>
+            <div>
+              <h3 class="ds__title">align-items</h3>
+              <p class="ds__desc">
+                Elementlarni <strong>kesim o'q</strong> (cross axis) bo'ylab
+                tarqatadi. Har bir flex item uchun ishlaydi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s04-stage"
+                style="
+                  display: flex;
+                  align-items: stretch;
+                  gap: 8px;
+                  height: 180px;
+                "
+              >
+                <div class="box bf b0" style="font-size: 2.2rem">A</div>
+                <div class="box bf b1" style="font-size: 1.3rem">B</div>
+                <div class="box bf b2" style="font-size: 1.8rem">C</div>
+              </div>
+              <pre class="code" id="s04-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">align-items</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s04-stage"
+                  data-code="s04"
+                  data-css="alignItems"
+                  data-type="f"
+                >
+                  <button class="btn btn-f active" data-val="stretch">
+                    stretch
+                  </button>
+                  <button class="btn btn-f" data-val="flex-start">
+                    flex-start
+                  </button>
+                  <button class="btn btn-f" data-val="flex-end">
+                    flex-end
+                  </button>
+                  <button class="btn btn-f" data-val="center">center</button>
+                  <button class="btn btn-f" data-val="baseline">
+                    baseline
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <strong>stretch</strong> — konteyner balandligini to'ldiradi
+              (default)
+            </div>
+            <div class="tip">
+              <strong>flex-start</strong> — yuqori tomonga yopishadi
+            </div>
+            <div class="tip"><strong>center</strong> — o'rtaga joylashadi</div>
+            <div class="tip">
+              <strong>baseline</strong> — matn asosi bo'yicha hizalanadi
+            </div>
+          </div>
+        </section>
+
+        <!-- S05 -->
+        <section class="ds" id="s05">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">05</span>
+            <div>
+              <h3 class="ds__title">flex-wrap</h3>
+              <p class="ds__desc">
+                Joy bo'lmasa elementlar yangi qatorga o'tadimi yoki siqiladimi.
+                Responsive layoutda juda muhim.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s05-stage"
+                style="display: flex; flex-wrap: nowrap; gap: 8px"
+              >
+                <div class="box bf b0" style="min-width: 80px">Item 1</div>
+                <div class="box bf b1" style="min-width: 80px">Item 2</div>
+                <div class="box bf b2" style="min-width: 80px">Item 3</div>
+                <div class="box bf b3" style="min-width: 80px">Item 4</div>
+                <div class="box bf b4" style="min-width: 80px">Item 5</div>
+                <div class="box bf b5" style="min-width: 80px">Item 6</div>
+              </div>
+              <pre class="code" id="s05-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">flex-wrap</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s05-stage"
+                  data-code="s05"
+                  data-css="flexWrap"
+                  data-type="f"
+                >
+                  <button class="btn btn-f active" data-val="nowrap">
+                    nowrap
+                  </button>
+                  <button class="btn btn-f" data-val="wrap">wrap</button>
+                  <button class="btn btn-f" data-val="wrap-reverse">
+                    wrap-reverse
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S06 -->
+        <section class="ds" id="s06">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">06</span>
+            <div>
+              <h3 class="ds__title">gap · row-gap · column-gap</h3>
+              <p class="ds__desc">
+                Elementlar orasidagi bo'shliq. <code>margin</code> dan farqi:
+                faqat elementlar <em>orasiga</em> qo'shiladi, tashqi chekkaga
+                emas.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s06-stage"
+                style="display: flex; gap: 8px; flex-wrap: wrap"
+              >
+                <div class="box bf b0">A</div>
+                <div class="box bf b1">B</div>
+                <div class="box bf b2">C</div>
+                <div class="box bf b3">D</div>
+              </div>
+              <pre class="code" id="s06-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">gap</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s06-stage"
+                  data-code="s06"
+                  data-css="gap"
+                  data-type="f"
+                >
+                  <button class="btn btn-f" data-val="0px">0</button>
+                  <button class="btn btn-f active" data-val="8px">8px</button>
+                  <button class="btn btn-f" data-val="16px">16px</button>
+                  <button class="btn btn-f" data-val="32px">32px</button>
+                  <button class="btn btn-f" data-val="48px">48px</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">row / col gap</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s06-stage"
+                  data-code="s06"
+                  data-css="rowcol"
+                  data-type="f"
+                >
+                  <button class="btn btn-f" data-val="4px|24px">
+                    row:4 col:24
+                  </button>
+                  <button class="btn btn-f" data-val="24px|4px">
+                    row:24 col:4
+                  </button>
+                  <button class="btn btn-f" data-val="0px|16px">
+                    row:0 col:16
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S07 flex-grow -->
+        <section class="ds" id="s07">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">07</span>
+            <div>
+              <h3 class="ds__title">flex-grow</h3>
+              <p class="ds__desc">
+                Qolgan bo'sh joyni qancha ulushda olishini belgilaydi.
+                <code>0</code> = o'smaydi. <code>2</code> = <code>1</code> ga
+                nisbatan 2x ko'proq joy oladi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s07-stage" style="display: flex; gap: 8px">
+                <div class="box bf b0" id="s07a" style="flex-grow: 0">
+                  grow:0
+                </div>
+                <div class="box bf b1" id="s07b" style="flex-grow: 1">
+                  grow:1
+                </div>
+                <div class="box bf b2" id="s07c" style="flex-grow: 2">
+                  grow:2
+                </div>
+              </div>
+              <pre class="code" id="s07-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — grow</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s07a"
+                  data-css="flexGrow"
+                  data-label="grow"
+                  data-code="s07"
+                  data-type="grow"
+                >
+                  <button class="btn btn-f active" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item B — grow</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s07b"
+                  data-css="flexGrow"
+                  data-label="grow"
+                  data-code="s07"
+                  data-type="grow"
+                >
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f active" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item C — grow</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s07c"
+                  data-css="flexGrow"
+                  data-label="grow"
+                  data-code="s07"
+                  data-type="grow"
+                >
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="1">1</button>
+                  <button class="btn btn-f active" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <strong>0</strong> — bo'sh joy olmaydi (default)
+            </div>
+            <div class="tip">
+              <strong>1</strong> — boshqalar bilan teng ulush
+            </div>
+            <div class="tip">
+              <strong>2</strong> — grow:1 ga nisbatan 2 marta ko'p
+            </div>
+            <div class="tip"><code>bo'sh_joy × (grow / jami_grow)</code></div>
+          </div>
+        </section>
+
+        <!-- S08 flex-shrink -->
+        <section class="ds" id="s08">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">08</span>
+            <div>
+              <h3 class="ds__title">flex-shrink</h3>
+              <p class="ds__desc">
+                Joy yetishmasa element qancha siqilishini belgilaydi.
+                <code>0</code> = hech siqilmaydi. <code>2</code> = 2 marta
+                tezroq siqiladi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s08-stage" style="display: flex; gap: 6px">
+                <div
+                  class="box bf b0"
+                  id="s08a"
+                  style="flex-shrink: 1; min-width: 120px; width: 160px"
+                >
+                  shrink:1
+                </div>
+                <div
+                  class="box bf b1"
+                  id="s08b"
+                  style="flex-shrink: 1; min-width: 120px; width: 160px"
+                >
+                  shrink:1
+                </div>
+                <div
+                  class="box bf b2"
+                  id="s08c"
+                  style="flex-shrink: 0; min-width: 120px; width: 160px"
+                >
+                  shrink:0
+                </div>
+              </div>
+              <pre class="code" id="s08-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — shrink</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s08a"
+                  data-css="flexShrink"
+                  data-label="shrink"
+                  data-code="s08"
+                  data-type="shrink"
+                >
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f active" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item B — shrink</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s08b"
+                  data-css="flexShrink"
+                  data-label="shrink"
+                  data-code="s08"
+                  data-type="shrink"
+                >
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f active" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item C — shrink</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s08c"
+                  data-css="flexShrink"
+                  data-label="shrink"
+                  data-code="s08"
+                  data-type="shrink"
+                >
+                  <button class="btn btn-f active" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="2">2</button>
+                  <button class="btn btn-f" data-val="3">3</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <strong>0</strong> — siqilmaydi, o'lchamini saqlaydi
+            </div>
+            <div class="tip"><strong>1</strong> — default, teng siqiladi</div>
+            <div class="tip"><strong>2</strong> — 2 marta tezroq siqiladi</div>
+            <div class="tip">Faqat <code>nowrap</code> holatda ishlaydi</div>
+          </div>
+        </section>
+
+        <!-- S09 flex-basis -->
+        <section class="ds" id="s09">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">09</span>
+            <div>
+              <h3 class="ds__title">flex-basis</h3>
+              <p class="ds__desc">
+                Elementning boshlang'ich (ideal) o'lchamini belgilaydi.
+                grow/shrink bu o'lchamdan keyin hisoblaydi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s09-stage" style="display: flex; gap: 8px">
+                <div class="box bf b0" id="s09a" style="flex-basis: auto">
+                  auto
+                </div>
+                <div class="box bf b1" id="s09b" style="flex-basis: 150px">
+                  150px
+                </div>
+                <div class="box bf b2" id="s09c" style="flex-basis: 30%">
+                  30%
+                </div>
+              </div>
+              <pre class="code" id="s09-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — basis</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s09a"
+                  data-css="flexBasis"
+                  data-label="basis"
+                  data-code="s09"
+                  data-type="basis"
+                >
+                  <button class="btn btn-f active" data-val="auto">auto</button>
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="100px">100px</button>
+                  <button class="btn btn-f" data-val="200px">200px</button>
+                  <button class="btn btn-f" data-val="50%">50%</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item B — basis</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s09b"
+                  data-css="flexBasis"
+                  data-label="basis"
+                  data-code="s09"
+                  data-type="basis"
+                >
+                  <button class="btn btn-f" data-val="auto">auto</button>
+                  <button class="btn btn-f" data-val="0">0</button>
+                  <button class="btn btn-f active" data-val="150px">
+                    150px
+                  </button>
+                  <button class="btn btn-f" data-val="200px">200px</button>
+                  <button class="btn btn-f" data-val="50%">50%</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <strong>auto</strong> — content yoki width ga qarab
+            </div>
+            <div class="tip">
+              <strong>0</strong> — boshlang'ich o'lcham yo'q, faqat grow
+            </div>
+            <div class="tip">
+              <strong>200px</strong> — fixed boshlang'ich o'lcham
+            </div>
+            <div class="tip">
+              <strong>50%</strong> — konteyneri enining yarmi
+            </div>
+          </div>
+        </section>
+
+        <!-- S10 flex shorthand -->
+        <section class="ds" id="s10">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">10</span>
+            <div>
+              <h3 class="ds__title">flex shorthand</h3>
+              <p class="ds__desc">
+                <code>flex: grow shrink basis</code> — uchtalasini bitta
+                qatorda. Eng ko'p ishlatiladigan pattern.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s10-stage" style="display: flex; gap: 8px">
+                <div class="box bf b0" id="s10a" style="flex: 1">flex:1</div>
+                <div class="box bf b1" id="s10b" style="flex: 1">flex:1</div>
+                <div class="box bf b2" id="s10c" style="flex: 2">flex:2</div>
+              </div>
+              <pre class="code" id="s10-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Preset</span>
+                <div class="ctrl-btns" data-type="shorthand" data-code="s10">
+                  <button
+                    class="btn btn-f active"
+                    data-a="1"
+                    data-b="1"
+                    data-c="2"
+                  >
+                    1 : 1 : 2
+                  </button>
+                  <button class="btn btn-f" data-a="1" data-b="1" data-c="1">
+                    teng (1:1:1)
+                  </button>
+                  <button
+                    class="btn btn-f"
+                    data-a="none"
+                    data-b="none"
+                    data-c="none"
+                  >
+                    none
+                  </button>
+                  <button class="btn btn-f" data-a="1" data-b="0" data-c="auto">
+                    1 0 auto
+                  </button>
+                  <button class="btn btn-f" data-a="2" data-b="1" data-c="0">
+                    2 : 1 : 0
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <code>flex: 1</code> = <code>flex: 1 1 0%</code>
+            </div>
+            <div class="tip">
+              <code>flex: auto</code> = <code>flex: 1 1 auto</code>
+            </div>
+            <div class="tip">
+              <code>flex: none</code> = <code>flex: 0 0 auto</code>
+            </div>
+            <div class="tip"><code>flex: 0 1 auto</code> = default holat</div>
+          </div>
+        </section>
+
+        <!-- S11 align-self -->
+        <section class="ds" id="s11">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">11</span>
+            <div>
+              <h3 class="ds__title">align-self</h3>
+              <p class="ds__desc">
+                Bitta elementning cross-axis bo'yicha joylashuvini alohida
+                boshqaradi. Konteynerning <code>align-items</code> ini override
+                qiladi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s11-stage"
+                style="
+                  display: flex;
+                  align-items: stretch;
+                  height: 200px;
+                  gap: 8px;
+                "
+              >
+                <div class="box bf b0">default</div>
+                <div class="box bf b1" id="s11target" style="align-self: auto">
+                  ⬅ target
+                </div>
+                <div class="box bf b2">default</div>
+              </div>
+              <pre class="code" id="s11-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">container align-items</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s11-stage"
+                  data-code="s11"
+                  data-css="alignItems"
+                  data-type="f"
+                >
+                  <button class="btn btn-f active" data-val="stretch">
+                    stretch
+                  </button>
+                  <button class="btn btn-f" data-val="flex-start">
+                    flex-start
+                  </button>
+                  <button class="btn btn-f" data-val="center">center</button>
+                  <button class="btn btn-f" data-val="flex-end">
+                    flex-end
+                  </button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">target align-self</span>
+                <div class="ctrl-btns" data-type="alignself" data-code="s11">
+                  <button class="btn btn-f active" data-val="auto">auto</button>
+                  <button class="btn btn-f" data-val="flex-start">
+                    flex-start
+                  </button>
+                  <button class="btn btn-f" data-val="flex-end">
+                    flex-end
+                  </button>
+                  <button class="btn btn-f" data-val="center">center</button>
+                  <button class="btn btn-f" data-val="stretch">stretch</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S12 order -->
+        <section class="ds" id="s12">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">12</span>
+            <div>
+              <h3 class="ds__title">order</h3>
+              <p class="ds__desc">
+                HTML tartibini o'zgartirmasdan vizual tartibni boshqaradi.
+                Kichik son = oldin ko'rinadi. Default: <code>0</code>.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div class="stage" id="s12-stage" style="display: flex; gap: 8px">
+                <div class="box bf b0" id="s12a" style="order: 0">
+                  1<small>order:0</small>
+                </div>
+                <div class="box bf b1" id="s12b" style="order: 0">
+                  2<small>order:0</small>
+                </div>
+                <div class="box bf b2" id="s12c" style="order: 0">
+                  3<small>order:0</small>
+                </div>
+                <div class="box bf b3" id="s12d" style="order: 0">
+                  4<small>order:0</small>
+                </div>
+              </div>
+              <pre class="code" id="s12-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Element 1 — order</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s12a"
+                  data-css="order"
+                  data-label="order"
+                  data-code="s12"
+                  data-type="order"
+                >
+                  <button class="btn btn-f" data-val="-2">-2</button>
+                  <button class="btn btn-f" data-val="-1">-1</button>
+                  <button class="btn btn-f active" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="99">99</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Element 4 — order</span>
+                <div
+                  class="ctrl-btns"
+                  data-item="s12d"
+                  data-css="order"
+                  data-label="order"
+                  data-code="s12"
+                  data-type="order"
+                >
+                  <button class="btn btn-f" data-val="-2">-2</button>
+                  <button class="btn btn-f" data-val="-1">-1</button>
+                  <button class="btn btn-f active" data-val="0">0</button>
+                  <button class="btn btn-f" data-val="1">1</button>
+                  <button class="btn btn-f" data-val="5">5</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S13 align-content -->
+        <section class="ds" id="s13">
+          <div class="ds__head">
+            <span class="ds__num ds__num--flex">13</span>
+            <div>
+              <h3 class="ds__title">align-content</h3>
+              <p class="ds__desc">
+                Bir nechta qator bo'lganda ularni cross-axis bo'ylab tarqatadi.
+                Faqat <code>flex-wrap: wrap</code> bilan ishlaydi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s13-stage"
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-content: flex-start;
+                  height: 240px;
+                  gap: 6px;
+                "
+              >
+                <div class="box bf b0" style="width: 80px">A</div>
+                <div class="box bf b1" style="width: 80px">B</div>
+                <div class="box bf b2" style="width: 80px">C</div>
+                <div class="box bf b3" style="width: 80px">D</div>
+                <div class="box bf b4" style="width: 80px">E</div>
+                <div class="box bf b5" style="width: 80px">F</div>
+              </div>
+              <pre class="code" id="s13-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">align-content</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s13-stage"
+                  data-code="s13"
+                  data-css="alignContent"
+                  data-type="f"
+                >
+                  <button class="btn btn-f active" data-val="flex-start">
+                    flex-start
+                  </button>
+                  <button class="btn btn-f" data-val="flex-end">
+                    flex-end
+                  </button>
+                  <button class="btn btn-f" data-val="center">center</button>
+                  <button class="btn btn-f" data-val="space-between">
+                    space-between
+                  </button>
+                  <button class="btn btn-f" data-val="space-around">
+                    space-around
+                  </button>
+                  <button class="btn btn-f" data-val="stretch">stretch</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ══════ CHAPTER II ══════ -->
+        <div class="chapter" id="chapter-grid">
+          <span class="chapter__badge chapter__badge--grid">II</span>
+          <div>
+            <h2 class="chapter__title c-grid">CSS Grid</h2>
+            <p class="chapter__desc">
+              2D tartib tizimi — qator va ustunni bir vaqtda boshqaradi
+            </p>
+          </div>
+        </div>
+
+        <!-- S14 -->
+        <section class="ds" id="s14">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">14</span>
+            <div>
+              <h3 class="ds__title">display: grid</h3>
+              <p class="ds__desc">
+                <code>display: grid</code> — ikkala o'qda ham tartib yaratadi.
+                Flexbox 1D bo'lsa, Grid 2D. Sahifa layoutlari uchun eng kuchli.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s14-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 8px;
+                "
+              >
+                <div class="box bg g0">1</div>
+                <div class="box bg g1">2</div>
+                <div class="box bg g2">3</div>
+                <div class="box bg g3">4</div>
+                <div class="box bg g4">5</div>
+                <div class="box bg g5">6</div>
+              </div>
+              <pre class="code" id="s14-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">display</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s14-stage"
+                  data-code="s14"
+                  data-css="display"
+                  data-type="g"
+                >
+                  <button class="btn btn-g active" data-val="grid">grid</button>
+                  <button class="btn btn-g" data-val="block">block</button>
+                  <button class="btn btn-g" data-val="inline-grid">
+                    inline-grid
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S15 -->
+        <section class="ds" id="s15">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">15</span>
+            <div>
+              <h3 class="ds__title">grid-template-columns</h3>
+              <p class="ds__desc">
+                Ustunlarning soni va o'lchamini belgilaydi. <code>fr</code> —
+                fraction (ulush) birligi, bo'sh joyni taqsimlaydi.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s15-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 8px;
+                "
+              >
+                <div class="box bg g0">1</div>
+                <div class="box bg g1">2</div>
+                <div class="box bg g2">3</div>
+                <div class="box bg g3">4</div>
+                <div class="box bg g4">5</div>
+                <div class="box bg g5">6</div>
+              </div>
+              <pre class="code" id="s15-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">template-columns</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s15-stage"
+                  data-code="s15"
+                  data-css="gridTemplateColumns"
+                  data-type="g"
+                >
+                  <button class="btn btn-g" data-val="1fr">1 ustun</button>
+                  <button class="btn btn-g" data-val="1fr 1fr">2 teng</button>
+                  <button class="btn btn-g active" data-val="repeat(3, 1fr)">
+                    3 teng
+                  </button>
+                  <button class="btn btn-g" data-val="repeat(4, 1fr)">
+                    4 teng
+                  </button>
+                  <button class="btn btn-g" data-val="1fr 2fr">
+                    1fr + 2fr
+                  </button>
+                  <button class="btn btn-g" data-val="1fr 2fr 1fr">
+                    1fr 2fr 1fr
+                  </button>
+                  <button class="btn btn-g" data-val="200px 1fr">
+                    200px + 1fr
+                  </button>
+                  <button class="btn btn-g" data-val="120px 1fr 120px">
+                    sidebar layout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip"><code>1fr</code> — mavjud joyning bir ulushi</div>
+            <div class="tip">
+              <code>repeat(3,1fr)</code> = <code>1fr 1fr 1fr</code>
+            </div>
+            <div class="tip">
+              <code>200px 1fr</code> — fixed sidebar + flexible main
+            </div>
+            <div class="tip">
+              <code>fr</code> px dan keyin bo'sh joyni taqsimlaydi
+            </div>
+          </div>
+        </section>
+
+        <!-- S16 -->
+        <section class="ds" id="s16">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">16</span>
+            <div>
+              <h3 class="ds__title">grid-template-rows</h3>
+              <p class="ds__desc">
+                Qatorlarning balandligini belgilaydi. <code>auto</code> =
+                content hajmiga qarab. <code>fr</code> = bo'sh joydan ulush.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s16-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 8px;
+                  height: 240px;
+                "
+              >
+                <div class="box bg g0">1</div>
+                <div class="box bg g1">2</div>
+                <div class="box bg g2">3</div>
+                <div class="box bg g3">4</div>
+                <div class="box bg g4">5</div>
+                <div class="box bg g5">6</div>
+              </div>
+              <pre class="code" id="s16-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">template-rows</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s16-stage"
+                  data-code="s16"
+                  data-css="gridTemplateRows"
+                  data-type="g"
+                >
+                  <button class="btn btn-g active" data-val="auto">auto</button>
+                  <button class="btn btn-g" data-val="1fr 1fr">1fr 1fr</button>
+                  <button class="btn btn-g" data-val="60px 1fr">
+                    60px + 1fr
+                  </button>
+                  <button class="btn btn-g" data-val="80px 40px">
+                    80px 40px
+                  </button>
+                  <button class="btn btn-g" data-val="1fr 2fr">
+                    1fr + 2fr
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S17 -->
+        <section class="ds" id="s17">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">17</span>
+            <div>
+              <h3 class="ds__title">gap · row-gap · column-gap (Grid)</h3>
+              <p class="ds__desc">
+                <code>gap: 16px 8px</code> — birinchisi qatorlar orasida,
+                ikkinchisi ustunlar orasida.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s17-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 8px;
+                "
+              >
+                <div class="box bg g0">1</div>
+                <div class="box bg g1">2</div>
+                <div class="box bg g2">3</div>
+                <div class="box bg g3">4</div>
+                <div class="box bg g4">5</div>
+                <div class="box bg g5">6</div>
+              </div>
+              <pre class="code" id="s17-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">gap (teng)</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s17-stage"
+                  data-code="s17"
+                  data-css="gap"
+                  data-type="g"
+                >
+                  <button class="btn btn-g" data-val="0">0</button>
+                  <button class="btn btn-g active" data-val="8px">8px</button>
+                  <button class="btn btn-g" data-val="16px">16px</button>
+                  <button class="btn btn-g" data-val="24px">24px</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">row / col alohida</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s17-stage"
+                  data-code="s17"
+                  data-css="rowcol"
+                  data-type="g"
+                >
+                  <button class="btn btn-g" data-val="4px|20px">
+                    row:4 col:20
+                  </button>
+                  <button class="btn btn-g" data-val="24px|4px">
+                    row:24 col:4
+                  </button>
+                  <button class="btn btn-g" data-val="16px|0">
+                    row:16 col:0
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S18 template-areas -->
+        <section class="ds" id="s18">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">18</span>
+            <div>
+              <h3 class="ds__title">grid-template-areas</h3>
+              <p class="ds__desc">
+                Grid katakchalariga nom berib, elementlarni nom orqali
+                joylashtiriladi. Sahifa layoutini vizual tarzda belgilash uchun
+                eng qulay usul.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s18-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: 150px 1fr;
+                  grid-template-rows: 50px 1fr 42px;
+                  gap: 8px;
+                  height: 260px;
+                  grid-template-areas: &quot;header header&quot; &quot;sidebar main&quot; &quot;footer footer&quot;;
+                "
+              >
+                <div class="box bg g0" style="grid-area: header">header</div>
+                <div class="box bg g2" style="grid-area: sidebar">sidebar</div>
+                <div class="box bg g1" style="grid-area: main">main</div>
+                <div class="box bg g3" style="grid-area: footer">footer</div>
+              </div>
+              <pre class="code" id="s18-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Layout preset</span>
+                <div class="ctrl-btns" data-type="areas">
+                  <button class="btn btn-g active" data-layout="classic">
+                    Classic
+                  </button>
+                  <button class="btn btn-g" data-layout="holygrail">
+                    Holy Grail
+                  </button>
+                  <button class="btn btn-g" data-layout="magazine">
+                    Magazine
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S19 span -->
+        <section class="ds" id="s19">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">19</span>
+            <div>
+              <h3 class="ds__title">grid-column · grid-row span</h3>
+              <p class="ds__desc">
+                <code>grid-column: span 2</code> = 2 ustunni egallaydi.
+                <code>grid-column: 1 / 3</code> = 1-chiziqdan 3-chiziqgacha.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s19-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: 8px;
+                  height: 200px;
+                "
+              >
+                <div class="box bg g0" id="s19a" style="grid-column: span 2">
                   span 2
-                </button>
-                <button class="btn btn--grid" data-prop="span" data-val="3">
-                  span 3
-                </button>
+                </div>
+                <div class="box bg g1">B</div>
+                <div class="box bg g2">C</div>
+                <div class="box bg g3">D</div>
+                <div class="box bg g4">E</div>
+                <div class="box bg g5">F</div>
+              </div>
+              <pre class="code" id="s19-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — grid-column</span>
+                <div class="ctrl-btns" data-type="gcol" data-code="s19">
+                  <button class="btn btn-g" data-val="span 1">span 1</button>
+                  <button class="btn btn-g active" data-val="span 2">
+                    span 2
+                  </button>
+                  <button class="btn btn-g" data-val="span 3">span 3</button>
+                  <button class="btn btn-g" data-val="span 4">span 4</button>
+                  <button class="btn btn-g" data-val="1 / 3">1 / 3</button>
+                  <button class="btn btn-g" data-val="2 / 5">2 / 5</button>
+                  <button class="btn btn-g" data-val="1 / -1">1 / -1</button>
+                </div>
+              </div>
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — grid-row</span>
+                <div class="ctrl-btns" data-type="grow19" data-code="s19">
+                  <button class="btn btn-g active" data-val="span 1">
+                    span 1
+                  </button>
+                  <button class="btn btn-g" data-val="span 2">span 2</button>
+                </div>
               </div>
             </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <code>span 2</code> — shu joydan 2 ta katakni egallaydi
+            </div>
+            <div class="tip">
+              <code>1 / 3</code> — 1-chiziqdan 3-chiziqgacha
+            </div>
+            <div class="tip">
+              <code>1 / -1</code> — birinchidan oxirigacha (full width)
+            </div>
+            <div class="tip">Grid liniyalar 1 dan boshlanadi (0 emas)</div>
+          </div>
+        </section>
 
-            <div class="control-group">
-              <label class="control-group__label">align-items</label>
-              <div class="control-group__btns">
-                <button
-                  class="btn btn--grid active"
-                  data-prop="galign"
-                  data-val="stretch"
+        <!-- S20 auto-fit -->
+        <section class="ds" id="s20">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">20</span>
+            <div>
+              <h3 class="ds__title">auto-fit · auto-fill · minmax()</h3>
+              <p class="ds__desc">
+                Responsive grid — ekran o'lchamiga qarab ustunlar soni avtomatik
+                o'zgaradi. Media query kerak emas.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage"
+                id="s20-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                  gap: 8px;
+                "
+              >
+                <div class="box bg g0">A</div>
+                <div class="box bg g1">B</div>
+                <div class="box bg g2">C</div>
+                <div class="box bg g3">D</div>
+                <div class="box bg g4">E</div>
+              </div>
+              <pre class="code" id="s20-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">template-columns</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s20-stage"
+                  data-code="s20"
+                  data-css="gridTemplateColumns"
+                  data-type="g"
                 >
-                  stretch
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="galign"
-                  data-val="start"
-                >
-                  start
-                </button>
-                <button
-                  class="btn btn--grid"
-                  data-prop="galign"
-                  data-val="center"
-                >
-                  center
-                </button>
-                <button class="btn btn--grid" data-prop="galign" data-val="end">
-                  end
-                </button>
+                  <button
+                    class="btn btn-g active"
+                    data-val="repeat(auto-fit, minmax(100px, 1fr))"
+                  >
+                    auto-fit 100px
+                  </button>
+                  <button
+                    class="btn btn-g"
+                    data-val="repeat(auto-fill, minmax(100px, 1fr))"
+                  >
+                    auto-fill 100px
+                  </button>
+                  <button
+                    class="btn btn-g"
+                    data-val="repeat(auto-fit, minmax(80px, 1fr))"
+                  >
+                    auto-fit 80px
+                  </button>
+                  <button
+                    class="btn btn-g"
+                    data-val="repeat(auto-fit, minmax(150px, 1fr))"
+                  >
+                    auto-fit 150px
+                  </button>
+                  <button
+                    class="btn btn-g"
+                    data-val="repeat(auto-fit, minmax(60px, 200px))"
+                  >
+                    min:60 max:200
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="stage-wrapper">
-            <div class="stage stage--grid" id="grid-stage">
-              <div class="box box--grid" style="--i: 0">1</div>
-              <div class="box box--grid" style="--i: 1">2</div>
-              <div class="box box--grid" style="--i: 2">3</div>
-              <div class="box box--grid" style="--i: 3">4</div>
-              <div class="box box--grid" style="--i: 4">5</div>
-              <div class="box box--grid" style="--i: 5">6</div>
+          <div class="tips">
+            <div class="tip">
+              <strong>auto-fit</strong> — bo'sh ustunlarni yig'ib elementlarni
+              cho'zadi
             </div>
-            <pre class="code-output" id="grid-code"></pre>
+            <div class="tip">
+              <strong>auto-fill</strong> — bo'sh ustunlarni ham saqlaydi
+            </div>
+            <div class="tip">
+              <code>minmax(100px,1fr)</code> — kamida 100px, ko'pi 1fr
+            </div>
+            <div class="tip">Responsive grid uchun eng kuchli usul</div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ═══ CHEATSHEET ═══ -->
-      <section class="cheatsheet">
-        <h2 class="cheatsheet__title">Qachon qaysinisini ishlatish kerak?</h2>
-        <div class="cheatsheet__grid">
-          <div class="cheatsheet__card cheatsheet__card--flex">
-            <div class="cheatsheet__card-label">Flexbox</div>
-            <ul>
-              <li>Navigatsiya menyusi</li>
-              <li>Tugmalar guruhi</li>
-              <li>Karta ichidagi layout</li>
-              <li>Bitta qator / ustun</li>
-              <li>Elementlarni markazlash</li>
-            </ul>
+        <!-- S21 grid-auto-flow -->
+        <section class="ds" id="s21">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">21</span>
+            <div>
+              <h3 class="ds__title">grid-auto-flow</h3>
+              <p class="ds__desc">
+                Avtomatik joylashgan elementlar qanday tartibda to'ldirishini
+                belgilaydi. <code>dense</code> — bo'sh joylarga element
+                tiqishtiradi.
+              </p>
+            </div>
           </div>
-          <div class="cheatsheet__card cheatsheet__card--grid">
-            <div class="cheatsheet__card-label">CSS Grid</div>
-            <ul>
-              <li>Sahifa asosiy tuzilmasi</li>
-              <li>Dashboard layouti</li>
-              <li>Rasm galereya</li>
-              <li>Murakkab 2D tartib</li>
-              <li>Responsive setzka</li>
-            </ul>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s21-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: 8px;
+                  grid-auto-flow: row;
+                "
+              >
+                <div class="box bg g0" style="grid-column: span 2">span 2</div>
+                <div class="box bg g1">B</div>
+                <div class="box bg g2">C</div>
+                <div class="box bg g3">D</div>
+                <div class="box bg g4">E</div>
+                <div class="box bg g5" style="grid-column: span 3">span 3</div>
+              </div>
+              <pre class="code" id="s21-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">grid-auto-flow</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s21-stage"
+                  data-code="s21"
+                  data-css="gridAutoFlow"
+                  data-type="g"
+                >
+                  <button class="btn btn-g active" data-val="row">row</button>
+                  <button class="btn btn-g" data-val="column">column</button>
+                  <button class="btn btn-g" data-val="row dense">
+                    row dense
+                  </button>
+                  <button class="btn btn-g" data-val="column dense">
+                    column dense
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="cheatsheet__card cheatsheet__card--both">
-            <div class="cheatsheet__card-label">Birgalikda</div>
-            <ul>
-              <li>Grid — sahifa skeleti</li>
-              <li>Flex — katak ichidagi content</li>
-              <li>Ikkalasi bir-birini to'ldiradi</li>
-              <li>Nested layout mumkin</li>
-              <li>Kuchli kombinatsiya</li>
-            </ul>
+          <div class="tips">
+            <div class="tip">
+              <strong>row</strong> — qator bo'yicha to'ldiradi (default)
+            </div>
+            <div class="tip">
+              <strong>column</strong> — ustun bo'yicha to'ldiradi
+            </div>
+            <div class="tip">
+              <strong>dense</strong> — bo'sh joylarni ham to'ldiradi
+            </div>
+          </div>
+        </section>
+
+        <!-- S22 place-items -->
+        <section class="ds" id="s22">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">22</span>
+            <div>
+              <h3 class="ds__title">
+                place-items · justify-items · align-items
+              </h3>
+              <p class="ds__desc">
+                <code>place-items: center</code> = har bir grid katak ichidagi
+                element markazga.
+                <code>align-items justify-items</code> shorthand.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s22-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 8px;
+                  height: 240px;
+                  place-items: stretch;
+                "
+              >
+                <div class="box bg g0">A</div>
+                <div class="box bg g1">B</div>
+                <div class="box bg g2">C</div>
+                <div class="box bg g3">D</div>
+                <div class="box bg g4">E</div>
+                <div class="box bg g5">F</div>
+              </div>
+              <pre class="code" id="s22-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">place-items</span>
+                <div
+                  class="ctrl-btns"
+                  data-stage="s22-stage"
+                  data-code="s22"
+                  data-css="placeItems"
+                  data-type="g"
+                >
+                  <button class="btn btn-g active" data-val="stretch">
+                    stretch
+                  </button>
+                  <button class="btn btn-g" data-val="center">center</button>
+                  <button class="btn btn-g" data-val="start">start</button>
+                  <button class="btn btn-g" data-val="end">end</button>
+                  <button class="btn btn-g" data-val="start center">
+                    start · center
+                  </button>
+                  <button class="btn btn-g" data-val="center end">
+                    center · end
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- S23 grid lines -->
+        <section class="ds" id="s23">
+          <div class="ds__head">
+            <span class="ds__num ds__num--grid">23</span>
+            <div>
+              <h3 class="ds__title">Grid lines — aniq joylashuv</h3>
+              <p class="ds__desc">
+                <code>grid-column: 1 / 3</code> — 1-chiziqdan 3-chiziqgacha.
+                <code>-1</code> = oxirgi chiziq. Elementni ixtiyoriy joyga
+                qo'yish.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo">
+              <div
+                class="stage stage--tall"
+                id="s23-stage"
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr);
+                  grid-template-rows: repeat(3, 56px);
+                  gap: 8px;
+                "
+              >
+                <div
+                  class="box bg g0"
+                  id="s23a"
+                  style="grid-column: 1/3; grid-row: 1/2"
+                >
+                  col 1/3
+                </div>
+                <div class="box bg g2" style="grid-column: 3/5; grid-row: 1/3">
+                  col 3/5<br />row 1/3
+                </div>
+                <div class="box bg g1">auto</div>
+                <div class="box bg g3">auto</div>
+                <div class="box bg g4" style="grid-column: 1/-1">
+                  col 1/-1 (full)
+                </div>
+              </div>
+              <pre class="code" id="s23-code"></pre>
+            </div>
+            <div class="card__ctrl">
+              <div class="ctrl-row">
+                <span class="ctrl-lbl">Item A — grid-column</span>
+                <div class="ctrl-btns" data-type="glines" data-code="s23">
+                  <button class="btn btn-g active" data-val="1/3">1 / 3</button>
+                  <button class="btn btn-g" data-val="1/2">1 / 2</button>
+                  <button class="btn btn-g" data-val="2/4">2 / 4</button>
+                  <button class="btn btn-g" data-val="1/-1">1 / -1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tips">
+            <div class="tip">
+              <code>grid-column: 1 / 3</code> — chiziq 1 dan 3 gacha
+            </div>
+            <div class="tip">
+              <code>grid-column: 1 / -1</code> — to'liq kenglik
+            </div>
+            <div class="tip">Grid liniyalar 1 dan boshlanadi, 0 emas</div>
+            <div class="tip">Manfiy: -1 = oxirgi, -2 = oxiridan bir oldin</div>
+          </div>
+        </section>
+
+        <!-- ══════ CHAPTER III ══════ -->
+        <div class="chapter" id="chapter-both">
+          <span class="chapter__badge chapter__badge--both">III</span>
+          <div>
+            <h2 class="chapter__title c-gold">Qiyoslash &amp; Real Layout</h2>
+            <p class="chapter__desc">Flex va Grid farqi va amaliy namunalar</p>
           </div>
         </div>
-      </section>
-    </main>
+
+        <!-- S24 compare -->
+        <section class="ds" id="s24">
+          <div class="ds__head">
+            <span class="ds__num ds__num--both">24</span>
+            <div>
+              <h3 class="ds__title">
+                Flex vs Grid — qachon nima ishlatish kerak?
+              </h3>
+              <p class="ds__desc">
+                Ikkalasi kuchli, lekin kuchli tomonlari boshqa-boshqa. Ko'pincha
+                birgalikda ishlatiladi.
+              </p>
+            </div>
+          </div>
+          <div class="compare-grid">
+            <div class="ccard ccard--flex">
+              <h4>Flexbox ishlatish kerak</h4>
+              <ul>
+                <li>Navigatsiya menyusi</li>
+                <li>Tugmalar guruhi</li>
+                <li>Karta ichidagi content</li>
+                <li>Bitta qator yoki ustun</li>
+                <li>Elementlarni markazlash</li>
+                <li>Content-driven o'lcham</li>
+                <li>Icon + matn kombinatsiya</li>
+              </ul>
+            </div>
+            <div class="ccard ccard--grid">
+              <h4>CSS Grid ishlatish kerak</h4>
+              <ul>
+                <li>Sahifa asosiy tuzilmasi</li>
+                <li>Dashboard layouti</li>
+                <li>Rasm galereya</li>
+                <li>Murakkab 2D tartib</li>
+                <li>Responsive setzka</li>
+                <li>Named areas layout</li>
+                <li>Layout-driven o'lcham</li>
+              </ul>
+            </div>
+            <div class="ccard ccard--both">
+              <h4>Birgalikda ishlatish</h4>
+              <ul>
+                <li>Grid — sahifa skeleti</li>
+                <li>Flex — katak ichidagi content</li>
+                <li>Nested layout mumkin</li>
+                <li>Grid ustunida flex nav</li>
+                <li>Flex kartalarida grid</li>
+                <li>Kombinatsiya = eng kuchli</li>
+                <li>Bir-birini to'ldiradi</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- S25 real layout -->
+        <section class="ds" id="s25">
+          <div class="ds__head">
+            <span class="ds__num ds__num--both">25</span>
+            <div>
+              <h3 class="ds__title">Real Layout — Grid + Flex birgalikda</h3>
+              <p class="ds__desc">
+                Sahifa tuzilmasi Grid bilan, nav va kartalar Flex bilan. Amaliy
+                dasturlashdagi eng keng tarqalgan pattern.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__demo card__demo--full">
+              <div class="rl" id="s25-stage">
+                <header class="rl-header">
+                  <span class="rl-logo">Logo</span>
+                  <nav class="rl-nav">
+                    <span>Home</span><span>About</span><span>Work</span>
+                  </nav>
+                </header>
+                <aside class="rl-sidebar">
+                  <div class="rl-menu-item">Menu 1</div>
+                  <div class="rl-menu-item">Menu 2</div>
+                  <div class="rl-menu-item">Menu 3</div>
+                </aside>
+                <main class="rl-main">
+                  <div class="rl-cards">
+                    <div class="rl-card">Card 1</div>
+                    <div class="rl-card">Card 2</div>
+                    <div class="rl-card">Card 3</div>
+                  </div>
+                </main>
+                <footer class="rl-footer">
+                  <span>© 2025</span>
+                  <div class="rl-flinks">
+                    <span>Link</span><span>Link</span><span>Link</span>
+                  </div>
+                </footer>
+              </div>
+              <pre class="code" id="s25-code"></pre>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
 
     <script src="script.js"></script>
   </body>
