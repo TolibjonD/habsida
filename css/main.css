@@ -2323,3 +2323,167 @@ button {
     transform: translateY(0);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE OVERFLOW FIXES
+   Hech qanday content hech qachon konteynerdan tashqariga chiqmasin
+═══════════════════════════════════════════════════════════════════ */
+
+/* — barcha asosiy konteynerlar — flex/grid trackida qisilishi mumkin — */
+.sec,
+.card,
+.card__body,
+.stage,
+.code,
+.info,
+.controls,
+.ctrl-row,
+.ctrl-btns,
+.vals,
+.vrow,
+.bpgrid,
+.bpcard,
+.perfgrid,
+.perf,
+.progrid,
+.protip,
+.protip__demo {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* — code bloklari ichida scroll qilsin, parentni kengaytirmasin — */
+.code,
+.bpcode {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* — bpcard va protip ichida bpcode bor — overflow constraint — */
+.bpcard,
+.protip__demo {
+  overflow: hidden;
+}
+.protip__demo {
+  box-sizing: border-box;
+}
+
+/* — mobile card body: explicit minmax(0, 1fr) — */
+@media (max-width: 760px) {
+  .card__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* — vrow jadval: 720px da single column (kattaroq ekrandan ham) — */
+@media (max-width: 720px) {
+  .vrow {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 16px;
+  }
+  .vrow .vk {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .vrow .vd {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+/* — info ichidagi code spanlar — kichik ekranda wrap bo'lsin — */
+@media (max-width: 600px) {
+  .info code,
+  .info p code,
+  .info li code,
+  .vrow .vd code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .info p,
+  .info li,
+  .sec__title,
+  .sec__desc,
+  .ch__title,
+  .ch__desc {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+/* — best practices grids: kichik ekranda single column — */
+@media (max-width: 600px) {
+  .bpgrid,
+  .perfgrid,
+  .progrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* — hero title: overflow protection — */
+.hero__title {
+  max-width: 100%;
+  padding-inline: var(--s-3);
+}
+
+/* — control buttons row: wrap qilsin — */
+.ctrl-btns {
+  min-width: 0;
+  max-width: 100%;
+}
+.btn {
+  max-width: 100%;
+}
+
+/* — sidebar links uzun bo'lganda ellipsis (allaqachon bor lekin reinforce) — */
+.snav-a {
+  min-width: 0;
+}
+
+/* — container queries demo, resize parent ichida — */
+.cqresize {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* — chapter header: katta sarlavhalar wrap qilsin — */
+.ch {
+  flex-wrap: wrap;
+  gap: var(--s-4);
+}
+.ch__title {
+  max-width: 100%;
+}
+
+/* — section header: word break ham — */
+.sec__head {
+  flex-wrap: wrap;
+}
+.sec__head > div {
+  min-width: 0;
+  flex: 1;
+}
+
+/* — bpcode (s24, s26) maxsus protection — */
+.bpcode {
+  display: block;
+  width: 100%;
+}
+
+/* — narrow tablet: hero chips wrap normal — */
+@media (max-width: 480px) {
+  .hero__chips {
+    gap: 6px;
+  }
+  .chip {
+    font-size: 0.95rem;
+    padding: 5px 12px;
+  }
+}
