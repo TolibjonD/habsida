@@ -2967,7 +2967,7 @@ CHAPTERS.push({
 ════════════════════════════════════════════════════════════════ */
 {
   let sidebarHtml =
-    '<li><a href="/habsida" class="snav-a snav-home" data-c="home">← Bosh sahifa</a></li>';
+    '<li><a href="index.html" class="snav-a snav-home" data-c="home">← Bosh sahifa</a></li>';
   let contentHtml = "";
   CHAPTERS.forEach((ch) => {
     sidebarHtml += `<li class="snav-ch">${ch.roman} — ${ch.title}</li>`;
