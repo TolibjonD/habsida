@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Mastery — Ultra Pro Interactive Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <span class="sidebar__brand-icon">◈</span>
+        <div class="sidebar__brand-text">
+          CSS Mastery<small>ULTRA PRO</small>
+        </div>
+      </div>
+      <ul class="sidebar__nav" id="snav">
+        <!-- injected by JS -->
+      </ul>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero__tag">
+          Interactive Platform · har bir mavzu: malumot + demo + kod + qiymatlar
+        </div>
+        <h1 class="hero__title">
+          <span class="a">CSS</span>
+          <span class="dot">·</span>
+          <span class="b">Mastery</span>
+        </h1>
+        <p class="hero__sub">
+          Selectors · Typography · Positions · Shadows · Animations · Responsive
+          · Best Practices
+          <br />Senior frontend developer darajasidagi to'liq qo'llanma.
+        </p>
+        <div class="hero__chips">
+          <span class="chip a">26 mavzu</span>
+          <span class="chip b">Batafsil malumot</span>
+          <span class="chip c">Barcha qiymatlar</span>
+          <span class="chip d">Live demo + kod</span>
+        </div>
+      </header>
+
+      <main class="content" id="content"><!-- injected by JS --></main>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

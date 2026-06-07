@@ -74,6 +74,21 @@ strong {
   font-weight: 700;
 }
 
+.sidebar__link--mastery {
+  font-weight: 600;
+  color: var(--c-flex, #ff4564) !important;
+  background: rgba(255, 69, 100, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 8px;
+  padding-block: 12px !important;
+  transition: all 0.15s ease;
+}
+.sidebar__link--mastery:hover {
+  background: rgba(255, 69, 100, 0.15) !important;
+  color: #ff4564 !important;
+  border-left-color: #ff4564 !important;
+}
+
 /* ═══════════════════════ SIDEBAR ═══════════════════════ */
 .sidebar {
   position: fixed;
